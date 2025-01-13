@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 
 # Importa os módulos necessários do Django REST Framework (DRF) para trabalhar com serializadores # noqa: E501
 from rest_framework import serializers
+# Importa os serializadores do Django REST Framework, que são usados para converter dados de modelos em formatos como JSON # noqa: E501
+from .models import Note
 
 
 # Criação de um serializador para o modelo User
@@ -26,3 +28,18 @@ class UserSerializer(serializers.ModelSerializer):
 
         # Retorna o usuário criado
         return user
+
+
+# Define o serializador para o modelo `Note`
+class NoteSerializer(serializers.ModelSerializer):
+    # A classe Meta define configurações para o serializador, como o modelo e os campos # noqa: E501
+    class Meta:
+        # Define que o serializador será baseado no modelo `Note`
+        model = Note
+
+        # Define quais campos do modelo `Note` serão incluídos no serializador
+        fields = ["id", "title", "content", "created_at", "author"]
+
+        # Define configurações extras para o campo `author`
+        # No caso, configuramos para que o campo `author` seja apenas de leitura, ou seja, não pode ser alterado via API # noqa: E501
+        extra_kwargs = {"author": {"read_only": True}}
