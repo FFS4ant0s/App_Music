@@ -5,6 +5,7 @@ import api from "../api";
 import { useNavigate } from "react-router-dom";  
 
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";  
+import "../styles/Form.css"
 
 function Form({route, method}) {  // Declara o componente `Form` que recebe `route` e `method` como props. `route` é a URL da API e `method` define se a ação é de "login" ou "register".
     const [username, setUsername] = useState("");  // Declara o estado `username` e a função `setUsername` para controlar o valor do campo de nome de usuário no formulário.
