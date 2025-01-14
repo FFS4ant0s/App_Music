@@ -6,8 +6,6 @@ import api from "../api";
 
 import { REFRESH_TOKEN, ACCESS_TOKEN } from "../constants";  
 
-import { useState } from "react";  
-
 import { useState, useEffect } from "react"; 
 
 function ProtectedRoute({children}) {  // Função do componente ProtectedRoute que recebe `children` (os componentes filhos) como props. Esse componente é usado para proteger rotas que requerem autenticação.
